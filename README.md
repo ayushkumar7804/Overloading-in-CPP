@@ -1,93 +1,130 @@
-
-# 🧬 Experiment: Inheritance in C++
-
-
-## 🎯 Objective
-To understand and implement various types of inheritance in C++, demonstrating how derived classes can inherit properties and behaviors from base classes to promote code reuse and modular design.
+# ➕ Function and Operator Overloading in C++
 
 ---
 
-## 📚 Types of Inheritance Covered
-
-| Type                  | Description |
-|-----------------------|-------------|
-| Single Inheritance    | One derived class inherits from one base class |
-| Multiple Inheritance  | One derived class inherits from multiple base classes |
-| Multilevel Inheritance| A class inherits from a derived class, forming a chain |
-| Hierarchical Inheritance | Multiple derived classes inherit from a single base class |
+## 🎯 Aim  
+To study and implement **Function Overloading** and **Operator Overloading** in C++.
 
 ---
 
-## 📌 1. Single Inheritance
+## 📚 Theory  
 
-### 🧠 Concept
-A derived class inherits from a single base class, gaining access to its public and protected members.
-
-### 📋 Algorithm
-- Define a base class with a member variable and a function.
-- Create a derived class that inherits from the base class.
-- Instantiate the derived class and access inherited members.
-
-### 🧪 Expected Output
-- Displays a message from the base class function.
-- Prints combined attributes from both base and derived classes.
+In C++, **overloading** is a fundamental feature of **polymorphism** that allows the same function or operator to perform different tasks depending on the context. This makes programs more **intuitive, flexible, and closer to natural language**.
 
 ---
 
-## 📌 2. Multiple Inheritance
+### 🔹 Function Overloading  
 
-### 🧠 Concept
-A derived class inherits from more than one base class, combining functionalities from all parent classes.
+Function overloading allows multiple functions with the **same name** but **different parameter lists**. The compiler decides which version to call at **compile time** based on the number and types of arguments.  
 
-### 📋 Algorithm
-- Define two separate base classes with distinct functions.
-- Create a derived class that inherits from both.
-- Instantiate the derived class and invoke functions from each base class.
+**Key Characteristics:**
+- Functions must differ in the number or type of parameters.  
+- Return type alone cannot distinguish overloaded functions.  
+- Represents **compile‑time polymorphism (static binding)**.  
+- Improves readability by grouping logically similar operations under one name.  
 
-### 🧪 Expected Output
-- Executes functions from both base classes.
-- Displays attributes and messages from the derived class.
-
----
-
-## 📌 3. Multilevel Inheritance
-
-### 🧠 Concept
-Inheritance occurs across multiple levels, where a class inherits from a derived class, forming a chain.
-
-### 📋 Algorithm
-- Define a base class with a function.
-- Create a second class that inherits from the base class.
-- Create a third class that inherits from the second class.
-- Instantiate the most derived class and access all inherited functions.
-
-### 🧪 Expected Output
-- Sequentially displays outputs from grandparent, parent, and child classes.
+**Advantages:**
+- Simplifies code by avoiding multiple function names for similar tasks.  
+- Makes programs easier to understand and maintain.  
+- Provides flexibility in handling different data types and argument counts.  
 
 ---
 
-## 📌 4. Hierarchical Inheritance
+### 🔹 Operator Overloading  
 
-### 🧠 Concept
-Multiple classes inherit from a single base class, each extending or customizing its behavior.
+Operator overloading allows redefining the behavior of operators (`+`, `-`, `*`, etc.) for **user‑defined types** (classes). This enables objects to behave like built‑in types, allowing natural expressions such as `c1 + c2` for complex numbers.  
 
-### 📋 Algorithm
-- Define a base class with a general-purpose function.
-- Create two derived classes that inherit from the base class.
-- Each derived class implements its own specialized function.
-- Instantiate both derived classes and invoke base and derived functions.
+**Key Characteristics:**
+- Declared using the keyword `operator`.  
+- Can be implemented as a member function or friend function.  
+- Some operators (`::`, `.`, `.*`, `?:`) cannot be overloaded.  
+- Enhances readability and abstraction by allowing intuitive operations on objects.  
 
-### 🧪 Expected Output
-- Displays a shared message from the base class.
-- Shows unique outputs from each derived class.
+**Advantages:**
+- Makes user‑defined types more expressive.  
+- Allows natural mathematical and logical operations on objects.  
+- Improves code clarity and reduces verbosity.  
 
 ---
 
-## 🧾 Conclusion
+## 📋 Algorithms  
 
-This experiment highlights how inheritance in C++ supports:
-- **Code reuse** by sharing common functionality.
-- **Modularity** through structured class hierarchies.
-- **Polymorphism** by enabling flexible object behavior.
+### 🧾 Function Overloading (Addition Class)
 
-Each inheritance type serves a distinct purpose in object-oriented design, and mastering them builds a strong foundation for scalable and maintainable software development.
+1. **Start**  
+2. Define a class `Addition`.  
+3. Inside the class, define three overloaded methods:  
+   - `sum(int a, int b)` → returns sum of two integers.  
+   - `sum(int a, int b, int c)` → returns sum of three integers.  
+   - `sum(double d, double e)` → returns sum of two doubles.  
+4. In `main()`:  
+   - Create an object `obj`.  
+   - Call `obj.sum(10,20)` → invokes 2‑int version.  
+   - Call `obj.sum(10,20,20)` → invokes 3‑int version.  
+   - Call `obj.sum(10.8,20.34)` → invokes 2‑double version.  
+   - Display results.  
+5. **End**
+
+---
+
+### 🧾 Function Overloading (UserInfo Class)
+
+1. **Start**  
+2. Define a class `UserInfo`.  
+3. Overload the method `show()` with different parameter lists:  
+   - `show(string name)` → prints only name.  
+   - `show(string name, int age)` → prints name and age.  
+   - `show(string name, string city)` → prints name and city.  
+   - `show(string name, int age, string city)` → prints all three.  
+4. In `main()`:  
+   - Create an object `u`.  
+   - Call each overloaded version with appropriate arguments.  
+   - Display results.  
+5. **End**
+
+---
+
+### 🧾 Operator Overloading (Complex Numbers)
+
+1. **Start**  
+2. Define a class `Complex` with members `real`, `imag`.  
+3. Create a constructor to initialize values.  
+4. Overload the `+` operator:  
+   - Add real parts.  
+   - Add imaginary parts.  
+   - Return a new `Complex` object.  
+5. Define a `display()` method to print the result.  
+6. In `main()`:  
+   - Create two objects `c1`, `c2`.  
+   - Compute `c3 = c1 + c2`.  
+   - Display `c3`.  
+7. **End**
+
+---
+
+### 🧾 Operator Overloading (Book Class)
+
+1. **Start**  
+2. Define a class `Book` with members `title`, `pages`.  
+3. Create a constructor to initialize values.  
+4. Overload the `-` operator:  
+   - Concatenate titles with `" & "`.  
+   - Add page counts.  
+   - Return a new `Book` object.  
+5. Define a `display()` method to print details.  
+6. In `main()`:  
+   - Create two objects `b1`, `b2`.  
+   - Compute `b3 = b1 - b2`.  
+   - Display all three books.  
+7. **End**
+
+---
+
+## 🧠 Conclusion  
+
+This experiment demonstrates the versatility of **overloading** in C++:  
+
+- **Function Overloading** → Same function name, different parameter lists, enabling flexible and intuitive use of functions.  
+- **Operator Overloading** → Redefines operators for user‑defined types, making objects behave like built‑in types.  
+- Both are examples of **compile‑time polymorphism**, resolved by the compiler before execution.  
+- Overloading improves **readability, reusability, and abstraction**, making programs more expressive and easier to maintain.v
